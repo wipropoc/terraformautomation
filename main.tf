@@ -1,18 +1,8 @@
-variable "aws_region_name" {
+variable "testing_variable" {
   type=string
-  default="us-east-1"
+  default="testing_value"
 }
 
-variable "aws_instance_name" {
-
-  type=map
-  default= {
-    us-east-1="EastRegion_Dev_Instance"
-    us-west-1="WestRegion_Dev_Instance"
-    us-south-1="SouthRegion_Dev_Instance"
-    }
+output "test_output" {
+  value=var.testing_variable
   }
-output "aws_server_name" {
-  value="${lookup(var.aws_instance_name , var.aws_region_name)}"
-  }
-
